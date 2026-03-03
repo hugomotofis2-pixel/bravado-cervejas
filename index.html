@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bravado - Cervejas Artesanais</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    
+    <!-- Fontes -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Loading -->
+    <div class="loading" id="loading">
+        <div class="spinner"></div>
+        <p style="margin-top: 20px;">Processando...</p>
+    </div>
+
+    <!-- Indicador de segurança -->
+    <div class="security-badge">
+        <span>🔒</span>
+        <span>Conexão Segura • Dados Criptografados</span>
+    </div>
+
+    <!-- Barra superior -->
+    <div class="top-bar">
+        <div>🍺 Cervejaria Bravado - Desde 2024</div>
+        <div class="auth-buttons" id="auth-buttons">
+            <button onclick="window.auth.abrirModalLogin()">🔐 Entrar</button>
+            <button onclick="window.auth.abrirModalCadastro()">📝 Cadastrar</button>
+        </div>
+        <div class="user-info" id="user-info" style="display: none;">
+            <span>👤 Olá, <span id="user-name"></span></span>
+            <button onclick="window.auth.logout()">Sair</button>
+        </div>
+    </div>
+
+    <header>
+        <div class="logo-badge">🍺</div>
+        <h1>BRAVADO</h1>
+        <p>Cervejas Artesanais de Caráter Forte</p>
+    </header>
+
+    <nav>
+        <button onclick="window.main.mostrarPagina('home')">🏠 Início</button>
+        <button onclick="window.main.mostrarPagina('products')">🍺 Nossas Cervejas</button>
+        <button onclick="window.main.mostrarPagina('cart')">🛒 Carrinho <span class="carrinho-count" id="carrinho-count">0</span></button>
+        <button onclick="window.main.mostrarPagina('profile')">👤 Meu Perfil</button>
+        <button onclick="window.main.mostrarPagina('contact')">📞 Contato</button>
+    </nav>
+
+    <!-- Containers para modais (serão preenchidos via JS) -->
+    <div id="modal-login" class="modal"></div>
+    <div id="modal-cadastro" class="modal"></div>
+    <div id="modal-recuperar-senha" class="modal"></div>
+    <div id="modal-verificar-codigo" class="modal"></div>
+    <div id="modal-redefinir-senha" class="modal"></div>
+    <div id="modal-pagamento" class="pagamento-modal"></div>
+
+    <main>
+        <div id="mensagem-area"></div>
+        <div id="page-container"></div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div>
+                <h4>Bravado</h4>
+                <p>Cervejas com caráter</p>
+            </div>
+            <div>
+                <h4>Formas de Pagamento</h4>
+                <p>💳 Crédito | 💵 Débito | 📲 PIX | 💰 Dinheiro</p>
+            </div>
+            <div>
+                <h4>Entrega</h4>
+                <p>📦 Para toda São Paulo</p>
+            </div>
+        </div>
+        <p>&copy; 2024 Cervejaria Bravado - Todos os direitos reservados</p>
+    </footer>
+
+    <!-- JavaScript Modules -->
+    <script src="js/main.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/products.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/payment.js"></script>
+    <script src="js/profile.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            window.main.inicializar();
+        });
+    </script>
+</body>
+</html>
