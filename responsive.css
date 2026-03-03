@@ -1,0 +1,83 @@
+/* ============================================
+   RESPONSIVIDADE - Mobile, Tablet, Desktop
+   ============================================ */
+
+@media (max-width: 1200px) {
+    .produtos-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 992px) {
+    .produtos-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .contato-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2.5rem;
+    }
+    
+    .logo-badge {
+        width: 60px;
+        height: 60px;
+        font-size: 1.8rem;
+        top: 10px;
+        left: 10px;
+    }
+    
+    .top-bar {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    nav button {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+    
+    .produtos-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .perfil-header {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .perfil-acoes {
+        margin-left: 0;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .metodos-pagamento {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        padding: 40px 20px;
+    }
+    
+    .hero h2 {
+        font-size: 2rem;
+    }
+    
+    .carrinho-item {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .modal-content {
+        padding: 20px;
+    }
+}
