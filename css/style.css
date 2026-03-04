@@ -1,1 +1,308 @@
+/* ============================================
+   ESTILOS BASE - Cervejaria Bravado
+   ============================================ */
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Raleway', sans-serif;
+    background-color: #faf7f2;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="none" /><path d="M10 50 Q 30 30, 50 50 T 90 50" stroke="%23d4b08c" stroke-width="0.5" fill="none" opacity="0.2"/></svg>');
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* TOP BAR */
+.top-bar {
+    background-color: #2d1f12;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #e6d5b8;
+    font-size: 0.9rem;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.auth-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.auth-buttons button {
+    background: none;
+    border: 2px solid #b68b5c;
+    color: #e6d5b8;
+    cursor: pointer;
+    font-size: 0.9rem;
+    padding: 8px 20px;
+    border-radius: 25px;
+    transition: all 0.3s;
+    font-weight: 600;
+}
+
+.auth-buttons button:hover {
+    background-color: #b68b5c;
+    color: #2d1f12;
+    transform: translateY(-2px);
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.user-info span {
+    color: #b68b5c;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.user-info button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.user-info button:hover {
+    background-color: #c82333;
+    transform: translateY(-2px);
+}
+
+/* HEADER */
+header {
+    background: linear-gradient(135deg, #3d2b1a 0%, #5c3f28 100%);
+    color: #f2e6d8;
+    padding: 30px 20px;
+    text-align: center;
+    border-bottom: 5px solid #b68b5c;
+    position: relative;
+}
+
+header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-shadow: 3px 3px 0px #2d1f12;
+}
+
+header p {
+    font-size: 1.2rem;
+    font-style: italic;
+    color: #e6d5b8;
+    margin-top: 10px;
+}
+
+.logo-badge {
+    width: 80px;
+    height: 80px;
+    background-color: #b68b5c;
+    border-radius: 50%;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #3d2b1a;
+    border: 3px solid #f2e6d8;
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+}
+
+/* NAVEGAÇÃO */
+nav {
+    background-color: #4a3727;
+    padding: 15px;
+    text-align: center;
+    border-bottom: 2px solid #b68b5c;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+nav button {
+    color: #f2e6d8;
+    background: none;
+    border: 2px solid transparent;
+    margin: 0 5px;
+    padding: 12px 25px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 40px;
+    transition: all 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+nav button:hover {
+    border-color: #b68b5c;
+    background-color: rgba(182, 139, 92, 0.2);
+    transform: translateY(-2px);
+}
+
+.carrinho-count {
+    background-color: #b68b5c;
+    color: #3d2b1a;
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin-left: 8px;
+    font-weight: bold;
+}
+
+/* MAIN CONTENT */
+main {
+    flex: 1;
+    padding: 30px;
+    max-width: 1400px;
+    margin: 20px auto;
+    width: 95%;
+}
+
+/* HERO SECTION */
+.hero {
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><polygon points="0,0 100,0 100,100 0,100" fill="%233d2b1a"/><circle cx="30" cy="30" r="10" fill="%23b68b5c" opacity="0.3"/><circle cx="70" cy="70" r="15" fill="%23b68b5c" opacity="0.3"/></svg>');
+    background-size: cover;
+    color: white;
+    padding: 80px 40px;
+    border-radius: 20px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.hero h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.3rem;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* MENSAGENS */
+.mensagem {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 25px;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    z-index: 3000;
+    animation: slideInRight 0.3s ease;
+}
+
+.mensagem.sucesso { background-color: #28a745; }
+.mensagem.erro { background-color: #dc3545; }
+.mensagem.info { background-color: #17a2b8; }
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* LOADING */
+.loading {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255,255,255,0.9);
+    z-index: 4000;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.loading.active {
+    display: flex;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #b68b5c;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* SECURITY BADGE */
+.security-badge {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    z-index: 1000;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* FOOTER */
+footer {
+    background-color: #2d1f12;
+    color: #e6d5b8;
+    text-align: center;
+    padding: 40px;
+    margin-top: auto;
+    border-top: 3px solid #b68b5c;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 20px;
+}
