@@ -1,0 +1,43 @@
+<div class="perfil-container">
+    <div class="perfil-header">
+        <div class="perfil-avatar">
+            <span id="avatar-icone">👤</span>
+        </div>
+        <div class="perfil-info">
+            <h3 id="perfil-nome">Carregando...</h3>
+            <p id="perfil-email">carregando@email.com</p>
+            <p>Membro desde: <span id="perfil-data">2024</span></p>
+        </div>
+        <div class="perfil-acoes">
+            <button onclick="window.auth.abrirModalTrocarSenha()">🔐 Trocar Senha</button>
+        </div>
+    </div>
+
+    <div class="avaliacao-container">
+        <h3>⭐ Avalie nossa loja</h3>
+        <div class="estrelas" id="estrelas-avaliacao">
+            <span onclick="window.profile.avaliar(1)">☆</span>
+            <span onclick="window.profile.avaliar(2)">☆</span>
+            <span onclick="window.profile.avaliar(3)">☆</span>
+            <span onclick="window.profile.avaliar(4)">☆</span>
+            <span onclick="window.profile.avaliar(5)">☆</span>
+        </div>
+        <p id="avaliacao-texto">Clique nas estrelas para avaliar</p>
+    </div>
+
+    <div class="historico-pedidos">
+        <h3>📦 Histórico de Pedidos</h3>
+        <div id="historico-pedidos">
+            <!-- Histórico via JS -->
+        </div>
+    </div>
+
+    <div class="programa-fidelidade">
+        <h3>🎁 Programa de Fidelidade</h3>
+        <p>A cada R$ 100 em compras, você ganha R$ 10 de desconto!</p>
+        <div style="background-color: rgba(255,255,255,0.3); height: 20px; border-radius: 10px; margin-top: 10px;">
+            <div id="fidelidade-progresso" style="background-color: #28a745; height: 100%; border-radius: 10px; width: 0%;"></div>
+        </div>
+        <p id="fidelidade-texto">Você ainda não acumulou pontos</p>
+    </div>
+</div>

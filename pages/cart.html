@@ -1,0 +1,16 @@
+<div class="carrinho-container">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; flex-wrap: wrap; gap: 15px;">
+        <h2 style="font-family: 'Playfair Display'; color: #3d2b1a;">🛒 Seu Carrinho</h2>
+        <button class="btn-limpar" onclick="window.cart.limparCarrinho()">🧹 Limpar Carrinho</button>
+    </div>
+    
+    <div id="carrinho-itens">
+        <!-- Itens do carrinho serão carregados via JS -->
+    </div>
+    
+    <div style="text-align: right; font-size: 1.5rem; margin: 20px 0;">
+        Total: <span id="total-valor" style="color: #28a745; font-weight: bold;">R$ 0,00</span>
+    </div>
+    
+    <button class="btn-finalizar" onclick="window.payment.abrirPagamento()">💰 Finalizar Compra</button>
+</div>

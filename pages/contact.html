@@ -1,0 +1,25 @@
+<div class="contato-container">
+    <div>
+        <h3 style="font-family: 'Playfair Display'; color: #3d2b1a; font-size: 2rem; margin-bottom: 20px;">Fale conosco</h3>
+        <p style="margin: 15px 0; padding: 10px; background-color: #faf7f2; border-radius: 8px;">📞 (11) 98765-4321</p>
+        <p style="margin: 15px 0; padding: 10px; background-color: #faf7f2; border-radius: 8px;">📧 contato@cervejabravado.com.br</p>
+        <p style="margin: 15px 0; padding: 10px; background-color: #faf7f2; border-radius: 8px;">📍 Rua dos Lúpulos, 456 - São Paulo/SP</p>
+        <p style="margin: 15px 0; padding: 10px; background-color: #faf7f2; border-radius: 8px;">⏰ Seg a Sex: 9h às 18h | Sáb: 9h às 13h</p>
+    </div>
+    
+    <div class="form-contato">
+        <h3 style="font-family: 'Playfair Display'; color: #3d2b1a; margin-bottom: 20px;">Envie uma mensagem</h3>
+        <form onsubmit="Bravado.utils.enviarMensagem(event)">
+            <div class="form-group">
+                <input type="text" placeholder="Seu nome" required>
+            </div>
+            <div class="form-group">
+                <input type="email" placeholder="Seu e-mail" required>
+            </div>
+            <div class="form-group">
+                <textarea rows="4" placeholder="Sua mensagem" required></textarea>
+            </div>
+            <button type="submit" class="btn-auth">Enviar Mensagem</button>
+        </form>
+    </div>
+</div>
