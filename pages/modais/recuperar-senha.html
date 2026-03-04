@@ -1,0 +1,13 @@
+<div class="modal-content">
+    <span class="close-modal" onclick="window.auth.fecharModalRecuperarSenha()">&times;</span>
+    <h2>🔐 Recuperar Senha</h2>
+    <p style="margin-bottom: 20px; color: #666;">Digite seu e-mail para receber um código de verificação.</p>
+    <form onsubmit="window.auth.enviarCodigoRecuperacao(event)">
+        <div class="form-group">
+            <label>E-mail:</label>
+            <input type="email" id="recuperar-email" required placeholder="seu@email.com">
+        </div>
+        <button type="submit" class="btn-auth">Enviar Código</button>
+        <button type="button" class="btn-secondary" onclick="window.auth.fecharModalRecuperarSenha()">Cancelar</button>
+    </form>
+</div>

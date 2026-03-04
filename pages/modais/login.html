@@ -1,1 +1,21 @@
-
+<div class="modal-content">
+    <span class="close-modal" onclick="window.auth.fecharModalLogin()">&times;</span>
+    <h2>🔐 Entrar na Bravado</h2>
+    <form onsubmit="window.auth.fazerLogin(event)">
+        <div class="form-group">
+            <label>E-mail:</label>
+            <input type="email" id="login-email" required placeholder="seu@email.com">
+        </div>
+        <div class="form-group">
+            <label>Senha:</label>
+            <input type="password" id="login-senha" required placeholder="******">
+        </div>
+        <div class="forgot-password">
+            <a onclick="window.auth.abrirModalRecuperarSenha()">Esqueceu a senha?</a>
+        </div>
+        <button type="submit" class="btn-auth">Entrar</button>
+    </form>
+    <div class="auth-switch">
+        Não tem conta? <a onclick="window.auth.abrirModalCadastro()">Cadastre-se</a>
+    </div>
+</div>

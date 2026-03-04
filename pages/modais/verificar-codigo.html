@@ -1,0 +1,16 @@
+<div class="modal-content">
+    <span class="close-modal" onclick="window.auth.fecharModalVerificarCodigo()">&times;</span>
+    <h2>📧 Verificar Código</h2>
+    <p style="margin-bottom: 20px; color: #666;">Digite o código de 6 dígitos enviado para seu e-mail.</p>
+    <form onsubmit="window.auth.verificarCodigo(event)">
+        <div class="form-group">
+            <label>Código:</label>
+            <input type="text" id="codigo-verificacao" required placeholder="123456" maxlength="6" pattern="[0-9]{6}">
+        </div>
+        <button type="submit" class="btn-auth">Verificar</button>
+        <button type="button" class="btn-secondary" onclick="window.auth.fecharModalVerificarCodigo()">Cancelar</button>
+    </form>
+    <div class="auth-switch">
+        <a onclick="window.auth.reenviarCodigo()">Reenviar código</a>
+    </div>
+</div>
