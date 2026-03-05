@@ -93,9 +93,39 @@
     <script src="js/profile.js"></script>
     
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+    // Função de inicialização com verificação de erros
+    function iniciarSite() {
+        console.log("🚀 Iniciando site...");
+        
+        // Verifica se os módulos carregaram
+        if (typeof window.Bravado === 'undefined') {
+            console.error("❌ Bravado não carregado!");
+            return;
+        }
+        
+        if (typeof window.main === 'undefined') {
+            console.error("❌ main não carregado!");
+            return;
+        }
+        
+        if (typeof window.main.inicializar === 'function') {
+            console.log("✅ main.inicializar encontrada!");
             window.main.inicializar();
-        });
-    </script>
+        } else {
+            console.error("❌ main.inicializar não é função!");
+            // Tenta inicializar manualmente
+            if (window.Bravado && window.Bravado.inicializar) {
+                window.Bravado.inicializar();
+            }
+        }
+    }
+
+    // Tenta iniciar quando a página carregar
+    document.addEventListener('DOMContentLoaded', iniciarSite);
+    
+    // Backup: tenta iniciar depois de 1 segundo
+    setTimeout(iniciarSite, 1000);
+</script>
 </body>
+
 </html>
