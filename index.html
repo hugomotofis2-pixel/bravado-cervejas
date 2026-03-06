@@ -95,13 +95,19 @@
     
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            window.main.inicializar();
+            // CORREÇÃO: window.Bravado tem o inicializar, não window.main
+            if (window.Bravado && typeof window.Bravado.inicializar === 'function') {
+                window.Bravado.inicializar();
+            } else {
+                console.error('Bravado não carregado corretamente');
+            }
         });
     </script>
     
 </body>
 
 </html>
+
 
 
 
