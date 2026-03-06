@@ -100,6 +100,20 @@ const Bravado = {
 
     // Inicialização
     inicializar: async function() {
+
+        // 1. CHECAGEM DE SEGURANÇA (O Guardião) 
+        const modulosNecessarios = [ 
+            { nome: 'Auth', obj: window.auth },
+            { nome: 'Cart', obj: window.cart }, 
+            { nome: 'Profile', obj: window.profile }
+        ]; 
+        for (const modulo of modulosNecessarios) {
+            if (!modulo.obj) { 
+                console.error(`❌ ERRO CRÍTICO: O módulo ${modulo.nome} não foi carregado.`);
+                // Opcional: mostrar uma mensagem de erro na tela 
+                this.utils.mostrarMensagem(`Erro ao carregar sistema: ${modulo.nome}`, 'erro');
+                return; // Interrompe a execução antes de causar o crash } }  
+        
         // Carrega dados do localStorage
         this.state.usuarios = JSON.parse(localStorage.getItem('usuariosBravado')) || [];
         this.state.carrinho = JSON.parse(localStorage.getItem('carrinhoBravado')) || [];
@@ -132,4 +146,5 @@ const Bravado = {
 
 // Exporta para uso global
 window.Bravado = Bravado;
+
 window.main = Bravado.navegacao;
