@@ -100,19 +100,22 @@ const Bravado = {
 
     // Inicialização
     inicializar: async function() {
-
-        // 1. CHECAGEM DE SEGURANÇA (O Guardião) 
+        console.log("🚀 Inicializando Bravado...");
+        
+        // 1. CHECAGEM DE SEGURANÇA
         const modulosNecessarios = [ 
             { nome: 'Auth', obj: window.auth },
             { nome: 'Cart', obj: window.cart }, 
             { nome: 'Profile', obj: window.profile }
         ]; 
+        
         for (const modulo of modulosNecessarios) {
             if (!modulo.obj) { 
-                console.error(`❌ ERRO CRÍTICO: O módulo ${modulo.nome} não foi carregado.`);
-                // Opcional: mostrar uma mensagem de erro na tela 
+                console.error(`❌ ERRO: Módulo ${modulo.nome} não carregado`);
                 this.utils.mostrarMensagem(`Erro ao carregar sistema: ${modulo.nome}`, 'erro');
-                return; // Interrompe a execução antes de causar o crash } }  
+                return;
+            } 
+        }
         
         // Carrega dados do localStorage
         this.state.usuarios = JSON.parse(localStorage.getItem('usuariosBravado')) || [];
@@ -122,18 +125,25 @@ const Bravado = {
         await this.modais.carregarModais();
         
         // Verifica sessão
-        window.auth.verificarSessao();
+        if (window.auth.verificarSessao) {
+            window.auth.verificarSessao();
+        }
         
         // Atualiza interface
-        window.auth.atualizarInterfaceUsuario();
-        window.cart.atualizarContador();
+        if (window.auth.atualizarInterfaceUsuario) {
+            window.auth.atualizarInterfaceUsuario();
+        }
+        
+        if (window.cart.atualizarContador) {
+            window.cart.atualizarContador();
+        }
         
         // Carrega página inicial
         this.navegacao.mostrarPagina('home');
         
         // Carrega avaliação anterior
         const avaliacaoSalva = JSON.parse(localStorage.getItem('ultimaAvaliacao'));
-        if (avaliacaoSalva) {
+        if (avaliacaoSalva && window.profile.avaliar) {
             window.profile.avaliar(avaliacaoSalva.nota);
         }
         
@@ -146,5 +156,4 @@ const Bravado = {
 
 // Exporta para uso global
 window.Bravado = Bravado;
-
 window.main = Bravado.navegacao;
