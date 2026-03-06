@@ -64,11 +64,11 @@ const Bravado = {
                 
                 // Inicializa componentes específicos da página
                 if (nomePagina === 'products') {
-                    if (window.products) window.products.renderizarCervejas();
+                    window.products.renderizarCervejas();
                 } else if (nomePagina === 'cart') {
-                    if (window.cart) window.cart.renderizarCarrinho();
+                    window.cart.renderizarCarrinho();
                 } else if (nomePagina === 'profile') {
-                    if (window.profile) window.profile.carregarPerfil();
+                    window.profile.carregarPerfil();
                 }
             } catch (error) {
                 console.error('Erro ao carregar página:', error);
@@ -100,8 +100,6 @@ const Bravado = {
 
     // Inicialização
     inicializar: async function() {
-        console.log("🚀 Inicializando Bravado...");
-        
         // Carrega dados do localStorage
         this.state.usuarios = JSON.parse(localStorage.getItem('usuariosBravado')) || [];
         this.state.carrinho = JSON.parse(localStorage.getItem('carrinhoBravado')) || [];
@@ -109,37 +107,26 @@ const Bravado = {
         // Carrega modais
         await this.modais.carregarModais();
         
-        // Pequeno atraso para garantir que os módulos carregaram
+        // Verifica sessão
+        window.auth.verificarSessao();
+        
+        // Atualiza interface
+        window.auth.atualizarInterfaceUsuario();
+        window.cart.atualizarContador();
+        
+        // Carrega página inicial
+        this.navegacao.mostrarPagina('home');
+        
+        // Carrega avaliação anterior
+        const avaliacaoSalva = JSON.parse(localStorage.getItem('ultimaAvaliacao'));
+        if (avaliacaoSalva) {
+            window.profile.avaliar(avaliacaoSalva.nota);
+        }
+        
+        // Mensagem de boas-vindas
         setTimeout(() => {
-            // Verifica sessão
-            if (window.auth && window.auth.verificarSessao) {
-                window.auth.verificarSessao();
-            }
-            
-            // Atualiza interface
-            if (window.auth && window.auth.atualizarInterfaceUsuario) {
-                window.auth.atualizarInterfaceUsuario();
-            }
-            
-            if (window.cart && window.cart.atualizarContador) {
-                window.cart.atualizarContador();
-            }
-            
-            // Carrega página inicial
-            this.navegacao.mostrarPagina('home');
-            
-            // Carrega avaliação anterior
-            const avaliacaoSalva = JSON.parse(localStorage.getItem('ultimaAvaliacao'));
-            if (avaliacaoSalva && window.profile && window.profile.avaliar) {
-                window.profile.avaliar(avaliacaoSalva.nota);
-            }
-            
-            // Mensagem de boas-vindas
-            setTimeout(() => {
-                this.utils.mostrarMensagem('🍺 Sistema Bravado pronto!', 'sucesso');
-            }, 1000);
-            
-        }, 100); // Pequeno atraso de 100ms
+            this.utils.mostrarMensagem('🍺 Sistema Bravado pronto!', 'sucesso');
+        }, 1000);
     }
 };
 
